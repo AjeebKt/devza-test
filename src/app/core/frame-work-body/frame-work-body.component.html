@@ -1,0 +1,32 @@
+<div class="top-navig p-2 d-flex align-items-center justify-content-between">
+  <div class="oper_sidenav_profile mr-4">
+    <button class="side-toggle-btn" mat-icon-button mat-button (click)="drawer.toggle()">
+      <mat-icon class="md-24" aria-label="Open Sidebar Menu">menu</mat-icon>
+    </button>
+    <img [src]="profileImage" class="logo" alt="prof_img">
+  </div>
+
+
+  <div class="align-v right-box">
+    <button class="notification rm-btn-style">
+      <mat-icon class="md-24" aria-label="Open Sidebar Menu">add_alert</mat-icon>
+    </button>
+    <button class="profile-menu rm-btn-style">
+      <img src="./assets/images/profile-pic.png" alt="user-image">
+      <span>Mike Simon  <span class="fa fa-chevron-down"></span></span>
+      <!-- <mat-icon class="md-24" aria-label="Open Sidebar Menu">menu</mat-icon> -->
+    </button>
+  </div>
+</div>
+
+
+<mat-drawer-container class="content-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="{{sideNaveMode}}" opened="{{sidenavStatus}}">
+    <app-left-nav-bar></app-left-nav-bar>
+  </mat-drawer>
+  <div class="sidenav-content clearfix p-4 app-content-body">
+    <div class="route-pages">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

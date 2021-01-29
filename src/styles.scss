@@ -1,1 +1,105 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap");
+
+@import "~bootstrap/scss/functions";
+@import "./assets/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.mat-drawer-inner-container {
+  background-color: $white;
+  border-right: 1px solid $gray-100;
+  padding-top: 20px;
+}
+.no-scroll {
+  overflow: hidden;
+}
+
+html,
+body {
+  height: 100%;
+}
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.align-v {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-title {
+  h3 {
+    font-size: 1.4rem;
+    color: $gray-700;
+  }
+  p {
+    font-size: 12px;
+    color: $gray-500;
+    b {
+      font-weight: 500;
+    }
+  }
+}
+
+.content-box {
+  border-radius: 4px;
+  color: $gray-500;
+  font-size: 14px;
+  h4 {
+    font-size: 16px;
+    color: $gray-600;
+  }
+}
+
+.app-loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: rgba(#000000, 75%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  svg {
+    width: 55px;
+    height: 55px;
+    margin: 20px;
+    display: inline-block;
+  }
+}
+
+.custom-button-style {
+  background: #ff5132; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #ff5132 0%,
+    #ffaa42 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #ff5132 0%,
+    #ffaa42 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ff5132 0%,
+    #ffaa42 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5132', endColorstr='#ffaa42',GradientType=1 ); /* IE6-9 */
+  color: $white;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  span {
+    margin-right: 10px;
+    font-size: 11px;
+  }
+}

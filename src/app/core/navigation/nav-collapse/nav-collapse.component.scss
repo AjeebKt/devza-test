@@ -1,0 +1,171 @@
+@import "~bootstrap/scss/functions";
+@import "../../~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// $nav-font-color
+/* sidebar */
+
+.card {
+  border-radius: 0px;
+  border: 0px;
+  background-color: #3b3b48;
+}
+
+.card-header {
+  padding: 0px;
+  background: none;
+  border: 0;
+  margin: 0 0 8px !important;
+  h5 {
+    margin: 0px;
+  }
+  button {
+    width: 100%;
+    // width: calc(100% - 15px);
+    padding: 12px 15px;
+    border: 0;
+    color: #9daac3;
+    text-align: left;
+    border-radius: 0;
+    // border-radius: 0px 30px 30px 0px;
+    font-size: 15px;
+    text-decoration: none;
+    &.btn.btn-link.arrow-show {
+      &:after {
+        width: 0;
+        height: 0;
+        margin-left: 0.255em;
+        content: "";
+        border-top: 0;
+        border-right: 0.4em solid transparent;
+        border-bottom: 0.4em solid;
+        border-left: 0.4em solid transparent;
+        vertical-align: middle;
+        float: right;
+        margin-top: 6px;
+      }
+      &.collapsed:after {
+        width: 0;
+        height: 0;
+        margin-left: 0.255em;
+        content: "";
+        border-top: 0.4em solid;
+        border-right: 0.4em solid transparent;
+        border-bottom: 0;
+        border-left: 0.4em solid transparent;
+        vertical-align: middle;
+        float: right;
+        margin-top: 8px;
+      }
+    }
+    &.active {
+      background-color: #223344;
+      color: $gray-100;
+    }
+  }
+  .btn-link {
+    &:hover,
+    &:focus {
+      background-color: #223344;
+      color: $gray-100;
+    }
+  }
+}
+
+// :host ::ng-deep {
+//   .card .card-header {
+//     margin: 0 0 15px;
+//   }
+// }
+
+.btn:not(:disabled):not(.disabled) {
+  &.active,
+  &:active {
+    background-color: #223344;
+    color: $gray-100;
+  }
+}
+
+.card .btn {
+  &:focus,
+  &:active:focus,
+  &.active:focus,
+  &.focus,
+  &:active.focus,
+  &.active.focus {
+    outline: none;
+    outline-offset: none;
+    color: #fff;
+  }
+}
+
+.nav-pills {
+  .nav-link.active,
+  .show > .nav-link {
+    outline: none;
+    outline-offset: none;
+  }
+}
+
+.icon-style {
+  width: 14px;
+  height: 20px;
+  color: #1f48a1;
+  float: left;
+  margin-top: 0px;
+  margin-right: 10px;
+}
+
+.card-body {
+  padding: 0px;
+  ul {
+    width: 100%;
+    padding-left: 0px;
+    li {
+      padding: 0px;
+      width: 100%;
+    }
+  }
+}
+
+/* .card-body ul li */
+
+.card-body .nav-pills {
+  .nav-link.active,
+  .show > .nav-link {
+    border-radius: 0px;
+  }
+}
+
+.nav-pills .nav-link {
+  border-radius: 0px;
+  padding-left: 42px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.card-body .nav > li {
+  &:hover,
+  &:focus {
+    background-color: #444;
+    outline: 0px;
+  }
+  > a {
+    &:hover,
+    &:focus {
+      background-color: #444;
+    }
+  }
+}
+
+.card a {
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  color: #fafafa;
+  text-decoration: none;
+  background-color: #474753 !important;
+}

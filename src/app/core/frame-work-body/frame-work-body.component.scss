@@ -1,0 +1,117 @@
+@import "~bootstrap/scss/functions";
+@import "../~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+:host ::ng-deep .mat-drawer-content {
+  background: $white;
+  background-color: $white;
+}
+
+.content-container {
+  height: 100vh;
+}
+
+:host ::ng-deep .mat-drawer-side {
+  border-right: none;
+}
+
+.sidenav {
+  width: 285px;
+  background: $white;
+  box-shadow: 1px 0 10px -4px rgba(51, 51, 51, 0.2);
+}
+.oper_sidenav_profile {
+  min-width: 250px;
+  // text-align: center;
+  img {
+    width: 130px;
+    max-width: 100%;
+  }
+}
+
+.app-content-body {
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+button:focus {
+  outline: none;
+  outline: none;
+}
+
+.side-toggle-btn {
+  background: none;
+  @include transition(all 0.35s ease);
+  @include border-radius(4px);
+  .mat-icon {
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+  }
+  mat-icon {
+    color: #828385;
+  }
+  &:hover {
+    background-color: $gray-200;
+  }
+}
+
+// .route-pages {
+//   margin-top: 10px;
+//   //   background: $white;
+//   //   padding: 10px;
+// }
+
+/* container setup */
+
+.focus {
+  &:focus {
+    box-shadow: none;
+  }
+  box-shadow: none;
+}
+
+.top-navig {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  // background-color: #2b2f43;
+  background-color: #ffffff;
+  height: 74px;
+  box-shadow: 0 2px 8px 1px rgba(#333333, 0.2);
+  // @include box-shadow(0 2px 8px 1px rgba(#333333, 0.2));
+}
+
+.right-box {
+  span {
+    font-size: 13px;
+  }
+}
+
+.rm-btn-style {
+  background: none;
+  border: 0;
+  margin-left: 10px;
+  color: #a0a2ab;
+  img {
+    max-width: 36px;
+    margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .oper_sidenav_profile {
+    min-width: 135px;
+    text-align: left;
+    img {
+      max-width: 135px;
+    }
+  }
+  .side-toggle-btn {
+    position: absolute;
+    right: 20px;
+    z-index: 999;
+    top: 23px;
+  }
+}
