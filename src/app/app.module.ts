@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { AuthInterceptor } from './core/services/auth.interceptor';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     CoreModule,
     ReactiveFormsModule, FormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     GlobalDataService,

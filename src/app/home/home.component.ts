@@ -23,11 +23,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.hs.getUserList().subscribe(res => {
-      console.log(res);
-    }, (err) => {
-      console.log(err);
-    });
+    // this.hs.getUserList().subscribe(res => {
+    //   console.log(res);
+    // }, (err) => {
+    //   console.log(err);
+    // });
   }
 
 }

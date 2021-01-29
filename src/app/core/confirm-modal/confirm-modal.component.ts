@@ -14,7 +14,7 @@ import { GlobalDataService } from '../services/global-data.service';
         style=""
         (click)="dialogRef.close(false)"
       >
-        No, cancel it
+        Cancel
       </button>
       <button
         type="button"
@@ -22,7 +22,7 @@ import { GlobalDataService } from '../services/global-data.service';
         appAutofocus
         (click)="dialogRef.close(true)"
       >
-        Delete component
+        Confirm
       </button>
 
     </div>

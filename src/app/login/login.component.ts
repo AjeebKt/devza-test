@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       loginResponse.token = tokenResponse.token;
 
       const currentUser = this.globalDataService.currentUser = new CurrentUser(loginResponse);
-      this.router.navigate(['/app/home']);
+      this.router.navigate(['/app/tasks']);
     }, (error: HttpErrorResponse | ErrorResponse) => {
       if (error instanceof ErrorResponse) {
         if (error.message === 'INVALID USER') {

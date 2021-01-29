@@ -19,10 +19,20 @@ export class NavigationModel implements INavigation {
     ) {
         this.menus = [
             {
-                id: 'home',
-                text: 'Home',
+                id: 'tasks',
+                text: 'Tasks',
+                icon: 'assets/images/bill.svg',
+                route: 'tasks',
+                type: 'collapse',
+                active: false,
+                roles: [...SUPER_USER, ...SUB_ADMIN],
+                submenu: null,
+            },
+            {
+                id: 'users',
+                text: 'Users',
                 icon: 'assets/images/account.svg',
-                route: 'home',
+                route: 'users',
                 type: 'collapse',
                 active: false,
                 roles: [...SUPER_USER, ...SUB_ADMIN],
