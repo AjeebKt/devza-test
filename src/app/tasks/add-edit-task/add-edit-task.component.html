@@ -1,0 +1,61 @@
+<div class="page-title mb-4">
+  <h3>{{pageTitle}}</h3>
+</div>
+
+<div class="p-3 bg-white cmn-radius-8 shadow-sm mb-3">
+  <form [formGroup]="addEditForm" appFocusOnError #focusOnError="appFocusOnError">
+    <div class="row system-form">
+
+      <div class="form-group col-lg-4 col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Message *</mat-label>
+          <input matInput formControlName="message">
+        </mat-form-field>
+        <show-errors [control]="formContorls['message']" field="Message"></show-errors>
+      </div>
+
+      <div class="form-group col-lg-4 col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Due Date *</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="due_date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <show-errors [control]="formContorls['due_date']" field="Due Date"></show-errors>
+      </div>
+
+      <div class="form-group col-lg-4 col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Priority *</mat-label>
+          <mat-select formControlName="priority">
+            <mat-option label="--select something --">-- Select something --</mat-option>
+            <mat-option *ngFor="let priority of priorityList" [value]="priority?.value">
+              {{priority?.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <show-errors [control]="formContorls['priority']" field="Priority"></show-errors>
+      </div>
+
+      <div class="form-group col-lg-4 col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Assigned To *</mat-label>
+          <mat-select formControlName="assigned_to">
+            <mat-option label="--select something --">-- Select something --</mat-option>
+            <mat-option *ngFor="let user of userList" [value]="user?.id">
+              {{user?.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <show-errors [control]="formContorls['assigned_to']" field="Assigned To"></show-errors>
+      </div>
+
+      <div class="form-group col-12 col-sm-12 text-right">
+        <button class="btn btn-danger mr-3" type="button" (click)="canceladdEdit()"> Cancel </button>
+        <button class="btn btn-success" type="submit" appButtonSubmit [form]="focusOnError" (submission)="onSubmit()">
+          {{ submitText }} </button>
+      </div>
+
+    </div>
+  </form>
+</div>
