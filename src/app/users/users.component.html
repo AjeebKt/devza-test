@@ -1,22 +1,15 @@
-.<div class="page-title mb-5">
-  <!-- <div class="custom-button-style pull-right" ><span class="fa fa-plus"></span> Add Task</div> -->
-  <h3>Users</h3>
-</div>
-
-
-<div class="row justify-content-end mb-3">
-  <div class="col-6 col-md-4 col-xl-3">
-    <div class="d-flex justify-content-end align-items-baseline searchable">
-      <span class="fa fa-search mr-2 text-black-50"></span>
-      <mat-form-field class="w-100">
-        <input matInput [(ngModel)]="searchText" placeholder="Search">
-      </mat-form-field>
-    </div>
+<div class="align-items-sm-center d-flex justify-content-sm-between mb-3 mb-sm-5 page-title user-page-header">
+  <h3 class="">Users</h3>
+  <div class="d-flex justify-content-end align-items-baseline searchable">
+    <span class="fa fa-search mr-2 text-black-50"></span>
+    <mat-form-field class="w-100">
+      <input matInput [(ngModel)]="searchText" placeholder="Search">
+    </mat-form-field>
   </div>
 </div>
 
-<div class="user-cards">
-  <div class="card-box" *ngFor="let item of userData | appSearch: searchText">
+<div class="user-cards row">
+  <div class="card-box col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let item of userData | appSearch: searchText">
     <div class="card-item">
       <img [src]="item.picture" alt="User-pic">
       <div class="details">

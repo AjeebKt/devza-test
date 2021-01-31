@@ -51,24 +51,51 @@ export class AddEditTaskComponent implements OnInit {
     }
     this.isEditPage = isEditPage;
     if (this.isEditPage) {
+      if (!!!this.gd.taskToEdit) { this.router.navigate(['/app/tasks']); return; }
+      // console.log(this.gd.taskToEdit);
+
       this.isEditPage = true;
-      // this.loadPage();
+      this.loadPage(this.gd.taskToEdit);
+      this.getAllUsers(this.gd.taskToEdit);
+    } else {
+      this.getAllUsers('');
     }
     this.pageTitle = isEditPage ? 'Edit Task' : 'Add Task';
     this.submitText = isEditPage ? 'Update' : 'Save';
-    this.getAllUsers();
+  }
+
+  loadPage(data) {
+    // console.log(data);
+
+    this.addEditForm.patchValue({
+      message: data.message,
+      due_date: new Date(data.due_date),
+      priority: data.priority,
+    });
   }
 
   get formContorls() { return this.addEditForm.controls; }
 
-  getAllUsers() {
+  getAllUsers(data) {
     this.userService.getUserList().subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.userList = res.users;
+      if (!!data) {
+        this.addEditForm.get('assigned_to').setValue(data.assigned_to);
+      }
     }, (err) => {
       console.log(err);
     });
   }
+
+  // getAllUsersToEdit(data) {
+  //   this.userService.getUserList().subscribe(res => {
+  //     this.userList = res.users;
+  //     this.addEditForm.get('assigned_to').setValue(data.assigned_to);
+  //   }, (err) => {
+  //     console.log(err);
+  //   });
+  // }
 
   canceladdEdit() {
     this.router.navigate(['/app/tasks']);
@@ -119,17 +146,29 @@ export class AddEditTaskComponent implements OnInit {
 
   editTask() {
     if (this.addEditForm.invalid) { return; }
-
+    const datePipe = new DatePipe('en-US');
     const data = this.addEditForm.value;
-    // data.projectID = this.gd.editSystem.PROJECT_ID;
-    // console.log(data);
+    data.due_date = datePipe.transform(data.due_date, 'yyyy-MM-dd hh:mm:ss');
 
-    this.tasksService.updateTask(data).subscribe(res => {
+    const formdata = new FormData();
+    formdata.append("message", data.message);
+    formdata.append("due_date", data.due_date);
+    formdata.append("priority", data.priority);
+    formdata.append("assigned_to", data.assigned_to);
+    formdata.append("taskid", this.gd.taskToEdit.id);
+
+    this.tasksService.updateTask(formdata).subscribe(res => {
       // console.log(res);
-      this.toastrService.success(`Updated Successfully`, `Success`, {
-        timeOut: 7000,
-      });
-      this.router.navigate(['/app/tasks']);
+      if (res.status === 'error') {
+        this.toastrService.error(res.error, `Error`, {
+          timeOut: 7000,
+        });
+      } else {
+        this.toastrService.success(`Updated Successfully`, `Success`, {
+          timeOut: 7000,
+        });
+        this.router.navigate(['/app/tasks']);
+      }
     }, (err) => {
       this.toastrService.error(err.response.Message, `Error`, {
         timeOut: 7000,

@@ -34,13 +34,30 @@ export class LeftNavBarComponent implements OnInit, OnDestroy {
   @HostListener('window:beforeunload')
   onBeforeUnload(): Observable<boolean> | boolean {
 
-    sessionStorage.setItem('currentUser', JSON.stringify(
-      this.gd.currentUser
-    ));
+    sessionStorage.setItem('currentUser', JSON.stringify(this.gd.currentUser));
+    const taskToEdit = this.gd.taskToEdit
+      ? sessionStorage.setItem('taskToEdit', JSON.stringify(this.gd.taskToEdit)) : null;
     return true;
   }
 
   ngOnInit() {
+    this.initialize();
+  }
+
+  initialize() {
+    try {
+      if (sessionStorage.getItem('currentUser')) {
+        const localData = sessionStorage.getItem('currentUser');
+        if (!!localData) {
+          this.gd.taskToEdit = JSON.parse(sessionStorage.getItem('taskToEdit'));
+
+          // Remove details from sessionStorage
+          sessionStorage.removeItem('uniqueLogged');
+        }
+      }
+    }
+    catch (e) {
+    }
   }
 
   navBtnClickEvent($event) {

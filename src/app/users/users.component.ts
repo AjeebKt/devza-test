@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
 
   getUserList() {
     this.taskService.getUserList().subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.userData = res.users;
       this.dataSource = new MatTableDataSource(res.users);
       this.dataSource.sort = this.sort;

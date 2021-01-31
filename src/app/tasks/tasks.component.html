@@ -4,15 +4,15 @@
 </div>
 
 <div class="row">
-  <div class="example-container col-12 col-xl-4">
+  <div class="example-container mb-4 col-12 col-xl-4">
     <h5>Low Priority</h5>
 
     <div cdkDropList #lowList="cdkDropList" [cdkDropListData]="low" [cdkDropListConnectedTo]="[mediumList, highList]"
-      class="example-list" (cdkDropListDropped)="drop($event)">
+      class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event, '1')">
 
-      <div class="example-box" *ngFor="let data of low" [cdkDragData]="data" cdkDrag>
+      <div class="example-box" *ngFor="let data of sortLowData" [cdkDragData]="data" cdkDrag>
         <div class="text-right actions">
-          <span class="fa fa-pencil p-2"></span>
+          <span class="fa fa-pencil p-2" (click)="editTask(data)"></span>
           <span class="fa fa-trash p-2" (click)="deleteTask(data)"></span>
         </div>
         <div class="contents">
@@ -25,15 +25,15 @@
     </div>
   </div>
 
-  <div class="example-container col-12 col-xl-4">
+  <div class="example-container mb-4 col-12 col-xl-4">
     <h5>Medium Priority</h5>
 
     <div cdkDropList #mediumList="cdkDropList" [cdkDropListData]="medium" [cdkDropListConnectedTo]="[lowList, highList]"
-      class="example-list" (cdkDropListDropped)="drop($event)">
+      class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event, '2')">
 
-      <div class="example-box" *ngFor="let data of medium" cdkDrag [cdkDragData]="data">
+      <div class="example-box" *ngFor="let data of sortMediumData" cdkDrag [cdkDragData]="data">
         <div class="text-right actions">
-          <span class="fa fa-pencil p-2"></span>
+          <span class="fa fa-pencil p-2" (click)="editTask(data)"></span>
           <span class="fa fa-trash p-2" (click)="deleteTask(data)"></span>
         </div>
         <div class="contents">
@@ -46,15 +46,16 @@
     </div>
   </div>
 
-  <div class="example-container col-12 col-xl-4">
+  <div class="example-container mb-4 col-12 col-xl-4">
     <h5>High Priority</h5>
 
-    <div cdkDropList #highList="cdkDropList" [cdkDropListData]="highPriority" [cdkDropListConnectedTo]="[lowList, mediumList]"
-    class="example-list" (cdkDropListDropped)="drop($event)">
+    <div cdkDropList #highList="cdkDropList" [cdkDropListData]="highPriority"
+      [cdkDropListConnectedTo]="[lowList, mediumList]" class="example-list" cdkDropListSortingDisabled
+      (cdkDropListDropped)="drop($event, '3')">
 
-      <div class="example-box" *ngFor="let data of highPriority" cdkDrag [cdkDragData]="data">
+      <div class="example-box" *ngFor="let data of sortHighData" cdkDrag [cdkDragData]="data">
         <div class="text-right actions">
-          <span class="fa fa-pencil p-2"></span>
+          <span class="fa fa-pencil p-2" (click)="editTask(data)"></span>
           <span class="fa fa-trash p-2" (click)="deleteTask(data)"></span>
         </div>
         <div class="contents">

@@ -18,7 +18,7 @@ export class FrameWorkBodyComponent implements OnInit {
   @ViewChild('sidenav', { static: false }) sidenav: MatSidenavModule;
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    if (event.target.innerWidth < 800) {
+    if (event.target.innerWidth < 992) {
       this.sideNaveMode = 'over';
       this.sidenavStatus = false;
     } else {
