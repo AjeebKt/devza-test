@@ -5,8 +5,8 @@
 
 <div class="row">
   <div class="example-container mb-4 col-12 col-xl-4">
-    <h5>Low Priority</h5>
 
+    <h5>Low Priority</h5>
     <div cdkDropList #lowList="cdkDropList" [cdkDropListData]="low" [cdkDropListConnectedTo]="[mediumList, highList]"
       class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event, '1')">
 
@@ -26,8 +26,8 @@
   </div>
 
   <div class="example-container mb-4 col-12 col-xl-4">
-    <h5>Medium Priority</h5>
 
+    <h5>Medium Priority</h5>
     <div cdkDropList #mediumList="cdkDropList" [cdkDropListData]="medium" [cdkDropListConnectedTo]="[lowList, highList]"
       class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event, '2')">
 
@@ -47,8 +47,8 @@
   </div>
 
   <div class="example-container mb-4 col-12 col-xl-4">
-    <h5>High Priority</h5>
 
+    <h5>High Priority</h5>
     <div cdkDropList #highList="cdkDropList" [cdkDropListData]="highPriority"
       [cdkDropListConnectedTo]="[lowList, mediumList]" class="example-list" cdkDropListSortingDisabled
       (cdkDropListDropped)="drop($event, '3')">
