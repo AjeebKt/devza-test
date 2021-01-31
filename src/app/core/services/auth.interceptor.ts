@@ -36,6 +36,7 @@ export class AuthInterceptor implements HttpInterceptor {
       const mainUrl = environment.API.URL + req.urlWithParams;
       let authHeader = new HttpHeaders();
       authHeader = authHeader.append('Content-Type', 'application/json').append('AuthToken', key.toString());
+      authHeader = req.headers.has('Content-Type') ? authHeader.delete('Content-Type') : authHeader;
       const authReq = req.clone({ headers: authHeader, url: mainUrl });
       return next.handle(authReq);
     }

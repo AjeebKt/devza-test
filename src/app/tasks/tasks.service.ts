@@ -15,12 +15,18 @@ export class TasksService {
     return this.http.get('/tasks/list');
   }
   createTask(data): Observable<any> {
-    return this.http.post('/tasks/create', data);
+    return this.http.post('/tasks/create', data, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
   }
   updateTask(data): Observable<any> {
-    return this.http.post('/tasks/update', data);
+    return this.http.post('/tasks/update', data, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
   }
   deleteTask(param): Observable<any> {
-    return this.http.post('/tasks/delete', param);
+    return this.http.post('/tasks/delete', param, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
   }
 }

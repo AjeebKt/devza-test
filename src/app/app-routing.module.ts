@@ -21,12 +21,11 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule) },
-
+      { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
     ]
   },
 
   { path: '401', component: UnauthorizedComponent },
-  { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 

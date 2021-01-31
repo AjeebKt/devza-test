@@ -7,7 +7,7 @@ import { GlobalDataService } from '../services/global-data.service';
   template: `
     <div class="delete right-page-btns">
       <img src="./assets/images/icon2.PNG" alt="delete">
-      <p>{{ message }}</p>
+      <p [innerHTML]="message"></p>
       <button
         type="button"
         class="btn btn-default "

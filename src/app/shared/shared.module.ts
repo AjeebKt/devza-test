@@ -11,6 +11,7 @@ import { SharedComponent } from './shared.component';
 //   MatChipsModule, MatTooltipModule, MatRadioModule
 // } from '@angular/material';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,7 +29,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -46,6 +47,7 @@ import { ButtonSubmitDirective } from './directives/button-submit.directive';
 import { FloatNumberDirective } from './directives/float-number.directive';
 import { DateInputDisableDirective } from './directives/date-input-disable.directive';
 import { FocusOnErrorDirective } from './directives/focus-on-error.directive';
+import { SearchPipe } from './pipes/search.pipe';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const MAT_MODULES = [
@@ -65,6 +67,8 @@ const MAT_MODULES = [
   MatSnackBarModule,
   MatProgressBarModule,
   MatChipsModule,
+  DragDropModule,
+  MatPaginatorModule,
   Ng2SearchPipeModule,
   MatTooltipModule,
   FormsModule,
@@ -72,7 +76,7 @@ const MAT_MODULES = [
   NgxPaginationModule,
   // NgbModule
 ];
-const pipes = [FilterPipe];
+const pipes = [FilterPipe, SearchPipe ];
 const components = [ShowErrorsComponent, CustomPaginationComponent,
   IntlTelInputComponent,
   EmailValidatorDirective];

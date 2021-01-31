@@ -91,6 +91,7 @@ export class AddEditTaskComponent implements OnInit {
     const datePipe = new DatePipe('en-US');
     const data = this.addEditForm.value;
     data.due_date = datePipe.transform(data.due_date, 'yyyy-MM-dd hh:mm:ss');
+
     const formdata = new FormData();
     formdata.append("message", data.message);
     formdata.append("due_date", data.due_date);
